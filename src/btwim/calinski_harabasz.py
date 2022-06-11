@@ -75,6 +75,6 @@ def shift_range_class(X, label, iter_num):
 	
 	return np.mean(result_pairwise)
 
-def btw(X, labels, iter_num):
+def btw(X, labels, iter_num=20):
 	return shift_range_class(X, labels, iter_num)
 

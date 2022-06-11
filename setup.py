@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
 	name="btwim",
-	version="0.0.2",
+	version="0.0.3",
 	author="Hyeon Jeon",
 	author_email="hj@hcil.snu.ac.kr",
 	description="Implementation of between dataset internal measures",
