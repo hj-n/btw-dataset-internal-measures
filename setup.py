@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
 	long_description = fh.read()
 
 setuptools.setup(
-	name="btw-im-hjn",
-	version="0.0.1",
+	name="btwim",
+	version="0.0.2",
 	author="Hyeon Jeon",
 	author_email="hj@hcil.snu.ac.kr",
 	description="Implementation of between dataset internal measures",

@@ -1,8 +1,8 @@
 import numpy as np
-import utils
+from . import utils
 
 
-def calinski_harabasz(X, label):
+def original(X, label):
 	n_clusters = len(np.unique(label))
 	n_samples = X.shape[0]
 	n_features = X.shape[1]
@@ -23,7 +23,7 @@ def calinski_harabasz(X, label):
 	return result
 
 
-def calinski_harabasz_shift(X, label):
+def shift(X, label):
 	n_clusters = len(np.unique(label))
 	n_samples = X.shape[0]
 	n_features = X.shape[1]
@@ -47,18 +47,18 @@ def calinski_harabasz_shift(X, label):
 
 	return result
 
-def calinski_harabasz_shift_range(X, label, iter_num):
-	orig = calinski_harabasz_shift(X, label)
+def shift_range(X, label, iter_num):
+	orig = shift(X, label)
 	orig_result = 1 / (1 + (orig) ** (-1))
 	e_val_sum = 0
 	for i in range(iter_num):
 		np.random.shuffle(label)
-		e_val_sum += calinski_harabasz_shift(X, label)
+		e_val_sum += shift(X, label)
 	e_val = e_val_sum / iter_num
 	e_val_result = 1 / (1 + (e_val) ** (-1))
 	return (orig_result - e_val_result) / (1 - e_val_result)
 
-def calinski_harabasz_shift_range_class(X, label, iter_num):
+def shift_range_class(X, label, iter_num):
 	class_num = len(np.unique(label))
 	result_pairwise = []
 	for label_a in range(class_num):
@@ -70,11 +70,11 @@ def calinski_harabasz_shift_range_class(X, label, iter_num):
 			label_map = {old_label: new_label for new_label, old_label in enumerate(unique_labels)}
 			labels_pair = np.array([label_map[old_label] for old_label in labels_pair], dtype=np.int32)
 
-			score = calinski_harabasz_shift_range(X_pair, labels_pair, iter_num)
+			score = shift_range(X_pair, labels_pair, iter_num)
 			result_pairwise.append(score)
 	
 	return np.mean(result_pairwise)
 
-def calisnki_harabasz_btw(X, labels, iter_num):
-	return calinski_harabasz_shift_range_class(X, labels, iter_num)
+def btw(X, labels, iter_num):
+	return shift_range_class(X, labels, iter_num)
 
