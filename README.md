@@ -67,7 +67,7 @@ print(btw_ch_val)
 
 ### Contact
 
-If you have any issue exploiting the libaray, feel free to contact us via [hj@hcil.snu.ac.kr](mailto:hj@hcil.snu.ac.kr).
+If you have any issue exploiting the library, feel free to contact us via [hj@hcil.snu.ac.kr](mailto:hj@hcil.snu.ac.kr).
 
 ### Reference
 
