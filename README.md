@@ -1,6 +1,8 @@
-## Between-Dataset Internal Measures
+# Between-Dataset Internal Measures
 
-Though internal Clustering Validation Measures (IVM) are widely used for the evaluation of clustering techniques, there exists one big problem - they cannot be used across dataset. This is becauses IVMs are originally designed to compare "different clusterings" of "a single dataset" to find the optimal one. 
+Though internal Clustering Validation Measures (IVM) (e.g., [Silhouette Coefficient](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), [Calinski-Harabasz Index](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.calinski_harabasz_score.html#sklearn.metrics.calinski_harabasz_score)) are widely used for the evaluation of clustering techniques, there exists one big problem - they cannot be used across dataset. This is because IVMs are originally designed to compare "different clusterings" of "a single dataset" to find the optimal one. 
+
+Due to such limitation, 
 
 In this repository, we introduce between-dataset internal measures (IVM${}\_{btwn}$) that allows fair comparison of clustering results across datasets. 
 IVM$\_{btwn}$ is originally designed to measure the cluster-label matching (i.e., the extent to which a clusters within a data matches with class labels given by a dataset) of datasets. Using the library, you can measure how well class labels of your dataset is well clustered, and compare the result to the ones of other datasets in [the link]().
@@ -61,3 +63,6 @@ print(btw_ch_val)
 > > - `iter_num`: int
 > >   - the number of Monte Carlo simulations performed to compute the expectaiton value of the measure
 
+### Reference
+
+This library is developed as the product of a paper "Sanity Check for External Clustering Validation Benchmarks using Internal Validation Measures". More informations will be announced later. 
